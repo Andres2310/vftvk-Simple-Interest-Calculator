@@ -1,16 +1,43 @@
+<!DOCTYPE html>
 <html>
+    <title>Interest Calculator</title>
     <head>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body id="background">
+      <div class="fondo" id="fondo">
         <h1>Simple Interest Calculator</h1>
 
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
+        <form class="form-compute" id="form-compute"  onsubmit="return compute()">
+          <label for="principal">Amount</label>
+          <input type="number" min="0" id="principal" required>  <br/>
+          <label for="rate">Interest Rate </label>
+          <input type="range" step="0.1" oninput="result.value=parseFloat(rate.value)" id="rate" name="rate" min="0.0" max="25" >
+          <output name="result" for="rate">12.5</output>%  <br/>
+          <label for="years">No. of Years </label>
+          <input name="years" id="years" list="year" required>
 
-        <button onclick="compute()">Compute</button>
+          <datalist id="year">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </datalist><br/>
+
+          <button >Compute Interest</button>
+        </form>
+
+        <p id="result"></p><br>
+        <footer>&copy Everyone Can Get Rich</footer>
+      </div>
+
     </body>
 </html>
+
